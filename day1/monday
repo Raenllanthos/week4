@@ -1,0 +1,43 @@
+-- QUESTION ONE
+SELECT COUNT(last_name) FROM actor WHERE last_name LIKE 'Wahlberg';
+-- 2
+
+-- QUESTION TWO
+SELECT COUNT(amount) FROM payment WHERE amount BETWEEN 3.99 and 5.99;
+-- 5607
+
+-- QUESTION THREE
+SELECT film_id, COUNT(film_id) FROM inventory GROUP BY film_id ORDER BY COUNT(film_id) DESC;
+-- "What film does the store have the most of"? 72 films with 8 movies between 2 stores
+-- There isn't any other clue. Which film? Which store?
+
+-- QUESTION FOUR
+SELECT COUNT(last_name) FROM customer WHERE last_name LIKE 'William';
+-- 0
+
+-- QUESTION FIVE
+SELECT COUNT(rental_id), staff_id FROM rental GROUP BY staff_id;
+-- staff_id 1
+
+-- QUESTION SIX
+SELECT COUNT(DISTINCT district) FROM address;
+-- 378
+
+-- QUESTION SEVEN
+SELECT film_id, COUNT(actor_id) FROM film_actor GROUP BY film_id ORDER BY COUNT(actor_id) DESC, film_id;
+-- 15 actors in film 508
+
+-- QUESTION EIGHT
+SELECT store_id, COUNT(last_name) FROM customer WHERE last_name LIKE '%es' GROUP BY store_id;
+-- store 1 with 13
+
+-- QUESTION NINE
+SELECT * FROM payment;
+SELECT customer_id, COUNT(payment_id) FROM payment WHERE customer_id BETWEEN 380 AND 430 GROUP BY customer_id ORDER BY customer_id ASC;
+-- What? Ask for help. There isn't any way that there are 250 rentals when there should be a handful of rentals and 
+-- payments while I'm getting like 20-30. This is supposed to make sense and I want it to but nothing is.
+
+-- QUESTION 10
+SELECT * FROM film;
+SELECT rating, COUNT(rating) FROM film GROUP BY rating;
+-- 5 ratings, most movies is PG-13
