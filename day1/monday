@@ -33,11 +33,12 @@ SELECT store_id, COUNT(last_name) FROM customer WHERE last_name LIKE '%es' GROUP
 
 -- QUESTION NINE
 SELECT * FROM payment;
+SELECT * FROM rental;
 SELECT customer_id, COUNT(payment_id) FROM payment WHERE customer_id BETWEEN 380 AND 430 GROUP BY customer_id ORDER BY customer_id ASC;
 -- What? Ask for help. There isn't any way that there are 250 rentals when there should be a handful of rentals and 
 -- payments while I'm getting like 20-30. This is supposed to make sense and I want it to but nothing is.
 
--- QUESTION 10
+-- QUESTION TEN
 SELECT * FROM film;
 SELECT rating, COUNT(rating) FROM film GROUP BY rating;
 -- 5 ratings, most movies is PG-13
