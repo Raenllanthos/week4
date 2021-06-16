@@ -1,0 +1,6 @@
+-- Update order_date
+UPDATE customer
+SET customer_id = 2
+WHERE customer_id = 1;
+
+SELECT * FROM customer;
