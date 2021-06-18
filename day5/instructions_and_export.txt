@@ -1,0 +1,69 @@
+Using the PDF of business rules for the car dealership, you will need to come up with an ERD using lucidchart.com.
+
+Once you have come to a conclusion, you will then create a new database using the ERD.
+
+The files needed to be turned in are:
+The ERD PDF
+SQL code that would be used to create the new database.
+
+Once the database has been created, each person should create their own database inside of PGAdmin 4. Also, once the database and the tables are created, each person should have AT LEAST 2 pieces/records of data inside of the tables. (You can add more if you want)
+
+At least 2 of the inserts should come from a stored function. (You can always add more if you want)
+
+Once the code is completed, commit both the PDF of the ERD diagram and the SQL code to github and submit the github link to the assignment.
+
+CREATE TABLE "Invoice" (
+  "invoice_id" SERIAL,
+  "invoice_type" VARCHAR(20),
+  "customer_id" INTEGER,
+  "payment_id" INTEGER,
+  "payment_type" VARCHAR(20),
+  "payment_date" DATE CURRENT DATE,
+  "total_amount" NUMERIC(6,2),
+  "part_id" INTEGER,
+  "work_done" VARCHAR(250),
+  "staff_id" INTEGER,
+  "car_serial" INTEGER,
+  PRIMARY KEY ("invoice_id")
+);
+
+CREATE TABLE "Car" (
+  "car_serial" SERIAL,
+  "Make" VARCHAR(20),
+  "Model" VARCHAR(20),
+  "Color" VARCHAR(20),
+  "Year" INTEGER,
+  "car_amount" NUMERIC(6,2),
+  PRIMARY KEY ("car_serial")
+);
+
+CREATE TABLE "Sales Person" (
+  "staff_id" SERIAL,
+  "first_name" VARCHAR(100),
+  "last_name" VARCHAR(150),
+  PRIMARY KEY ("staff_id")
+);
+
+CREATE TABLE "Parts" (
+  "part_id" SERIAL,
+  "work_done" VARCHAR(250),
+  "mechanic_id" INTEGER,
+  "car_serial" INTEGER,
+  "customer_id" INTEGER,
+  "parts_amount" NUMERIC(6,2),
+  PRIMARY KEY ("part_id")
+);
+
+CREATE TABLE "Customer" (
+  "customer_id" SERIAL,
+  "first_name" VARCHAR(100),
+  "last_name" VARCHAR(150),
+  PRIMARY KEY ("customer_id")
+);
+
+CREATE TABLE "Mechanic" (
+  "mechanic_id" SERIAL,
+  "car_serial" INTEGER,
+  "customer_id" INTEGER,
+  PRIMARY KEY ("mechanic_id")
+);
